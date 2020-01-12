@@ -24,6 +24,7 @@
 * [Lesson 1: Introduction to AI at the Edge](1-Exercise-Loading_Pre-Trained_Models)
 * [Lesson 2: Leveraging Pre-Trained Models](2-Exercise-Preprocessing_Inputs)
 * [Lesson 3: The Model Optimizer](3-Deploy_Your_First_Edge_App)
+* [Lesson 4: Convert a TF Model](4-Exercise_Convert_a_TF_Model)
 
 ...
 

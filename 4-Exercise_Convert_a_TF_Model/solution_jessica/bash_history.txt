@@ -1,0 +1,26 @@
+mkdir solution_jessica
+cd solution_jessica/
+wget http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v2_coco_2018_03_29.tar.gz
+clear
+cd /opt/intel/openvino/deployment_tools/model_optimizer/install_prerequisites/
+install_prerequisites_tf.sh
+./install_prerequisites_tf.sh
+clear
+cd /home/workspace/solution_jessica/ssd_mobilenet_v2_coco_2018_03_29/frozen_inference_graph.pb 
+mkdir solution_jessica
+cd solution
+cd ..
+cd solution_jessica/
+wget http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v2_coco_2018_03_29.tar.gz
+tar -xvf ssd_mobilenet_v2_coco_2018_03_29.tar.gz 
+clear
+cd /opt/intel/openvino/deployment_tools/model_optimizer/
+ls -la
+python3 mo_tf.py --input_model /home/workspace/solution_jessica/ssd_mobilenet_v2_coco_2018_03_29/frozen_inference_graph.pb 
+cd /home/workspace/solution_jessica/
+python3 /opt/intel/openvino/deployment_tools//model_optimizer/mo_tf.py --input_model /home/workspace/solution_jessica/ssd_mobilenet_v2_coco_2018_03_29/frozen_inference_graph.pb 
+python3 /opt/intel/openvino/deployment_tools//model_optimizer/mo_tf.py --input_model /home/workspace/solution_jessica/ssd_mobilenet_v2_coco_2018_03_29/frozen_inference_graph.pb --reverse_input_channels
+python3 /opt/intel/openvino/deployment_tools//model_optimizer/mo_tf.py --input_model /home/workspace/solution_jessica/ssd_mobilenet_v2_coco_2018_03_29/frozen_inference_graph.pb --reverse_input_channels --input_shape with positive
+python3 /opt/intel/openvino/deployment_tools//model_optimizer/mo_tf.py --input_model /home/workspace/solution_jessica/ssd_mobilenet_v2_coco_2018_03_29/frozen_inference_graph.pb --reverse_input_channels --tensorflow_object_detection_api_pipeline_config 
+python3 /opt/intel/openvino/deployment_tools//model_optimizer/mo_tf.py --input_model /home/workspace/solution_jessica/ssd_mobilenet_v2_coco_2018_03_29/frozen_inference_graph.pb --reverse_input_channels --tensorflow_object_detection_api_pipeline_config ssd_mobilenet_v2_coco_2018_03_29/pipeline.config --tensorflow_use_custom_operations_config /opt/intel/openvino/deployment_tools/model_optimizer/extensions/front/tf/ssd_v2_support.json
+history -w /home/workspace/solution_jessica/bash_history.txt
